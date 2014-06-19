@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace TweetsPerSecond
 {
     /// <summary>
-    /// My Second attempt
+    /// Using indecies instead of a linked list, where data was being duplicated.
+    /// Author: Benjamin Blodgett
     /// </summary>
     static class S2
     {

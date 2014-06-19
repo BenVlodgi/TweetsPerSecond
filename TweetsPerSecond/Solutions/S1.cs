@@ -8,6 +8,7 @@ namespace TweetsPerSecond
 {
     /// <summary>
     /// My initial submition to CR, except for for-loop implementation at the bottom
+    /// Author: Benjamin Blodgett
     /// </summary>
     /// http://codereview.stackexchange.com/questions/54662/tweets-per-second-using-linked-list
     static class S1

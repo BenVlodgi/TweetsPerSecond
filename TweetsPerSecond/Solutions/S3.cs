@@ -8,7 +8,8 @@ using System.IO;
 namespace TweetsPerSecond
 {
     /// <summary>
-    /// mjolka's implementation
+    /// Implementation for a code review
+    /// Author: mjolka's
     /// </summary>
     /// http://codereview.stackexchange.com/a/54674/38054
     static class S3
