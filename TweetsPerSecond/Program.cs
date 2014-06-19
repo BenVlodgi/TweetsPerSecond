@@ -22,7 +22,7 @@ namespace TweetsPerSecond
 
             var textFiles = Directory.GetFiles("Tests").Where(name => name.EndsWith(".txt"));
             var testFiles = textFiles.Where(name => name.EndsWith("_input.txt"));
-            var answerFiles = textFiles.Where(name => name.EndsWith("_answer.txt"));
+            var answerFiles = textFiles.Where(name => name.EndsWith("_output.txt"));
 
             int choice = -1;
             if (args.Count() > 0)
