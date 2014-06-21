@@ -79,13 +79,13 @@ namespace TweetsPerSecond
 
             File.WriteAllText("latest_results.txt", string.Format(
                 "Timer1: {0} Miliseconds Average, \tTicks: {1}\nTimer2: {2} Miliseconds Average, \tTicks: {3}\nTimer3: {4} Miliseconds Average, \tTicks: {5}",
-                new TimeSpan(timer1.Ticks / iterations).Milliseconds, timer1.Ticks,
-                new TimeSpan(timer2.Ticks / iterations).Milliseconds, timer2.Ticks,
-                new TimeSpan(timer3.Ticks / iterations).Milliseconds, timer3.Ticks));
+                new TimeSpan(timer1.Ticks / iterations).TotalMilliseconds, timer1.Ticks,
+                new TimeSpan(timer2.Ticks / iterations).TotalMilliseconds, timer2.Ticks,
+                new TimeSpan(timer3.Ticks / iterations).TotalMilliseconds, timer3.Ticks));
 
-            Console.WriteLine("Timer1: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer1.Ticks / iterations).Milliseconds, timer1.Ticks);
-            Console.WriteLine("Timer2: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer2.Ticks / iterations).Milliseconds, timer2.Ticks);
-            Console.WriteLine("Timer3: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer3.Ticks / iterations).Milliseconds, timer3.Ticks);
+            Console.WriteLine("Timer1: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer1.Ticks / iterations).TotalMilliseconds, timer1.Ticks);
+            Console.WriteLine("Timer2: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer2.Ticks / iterations).TotalMilliseconds, timer2.Ticks);
+            Console.WriteLine("Timer3: {0} Miliseconds Average, \tTicks: {1}", new TimeSpan(timer3.Ticks / iterations).TotalMilliseconds, timer3.Ticks);
             Console.Write("\nPress Any Key To Finish...");
             Console.ReadKey(true);
         }
