@@ -64,15 +64,24 @@ namespace TweetsPerSecond
 
             for (int i = 0; i < iterations; i++)
             {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
                 var stopwatch = Stopwatch.StartNew();
                 File.WriteAllLines("out1.txt",S1.TweetsPerSecond(tps, k));
                 stopwatch.Stop();
                 timer1 += stopwatch.Elapsed;
 
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
                 stopwatch.Restart();
                 File.WriteAllLines("out2.txt",S2.TweetsPerSecond(tps, k));
                 stopwatch.Stop();
                 timer2 += stopwatch.Elapsed;
+
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
 
                 stopwatch.Restart();
                 File.WriteAllLines("out3.txt",S3.TweetsPerSecond(tps, k));
