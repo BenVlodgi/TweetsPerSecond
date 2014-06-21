@@ -16,13 +16,12 @@ namespace TweetsPerSecond
     {
         public static IEnumerable<string> TweetsPerSecond(int[] tweetsPerSecond, int windowSize)
         {
-            var size = windowSize + 1;
             var bag = new SortedBag<int>();
             for (var i = 0; i < tweetsPerSecond.Length; i++)
             {
-                if (i > windowSize)
+                if (i >= windowSize)
                 {
-                    bag.Remove(tweetsPerSecond[i - size]);
+                    bag.Remove(tweetsPerSecond[i - windowSize]);
                 }
 
                 bag.Add(tweetsPerSecond[i]);
