@@ -53,9 +53,9 @@ namespace TweetsPerSecond
 
             int iterations = 100;
 
-            TimeSpan timer1 = new TimeSpan(0);
-            TimeSpan timer2 = new TimeSpan(0);
-            TimeSpan timer3 = new TimeSpan(0);
+            TimeSpan timer1 = TimeSpan.Zero;
+            TimeSpan timer2 = TimeSpan.Zero;
+            TimeSpan timer3 = TimeSpan.Zero;
 
             for (int i = 0; i < iterations; i++)
             {
