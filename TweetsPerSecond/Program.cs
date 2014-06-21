@@ -22,14 +22,14 @@ namespace TweetsPerSecond
             }
 
             var textFiles = Directory.GetFiles("Tests").Where(name => name.EndsWith(".txt"));
-            var testFiles = textFiles.Where(name => name.EndsWith("_input.txt"));
+            var testFiles = textFiles.Where(name => name.EndsWith("_input.txt")).ToArray();
             var answerFiles = textFiles.Where(name => name.EndsWith("_output.txt"));
 
             int choice = -1;
             if (args.Count() > 0)
                 int.TryParse(args.First(), out choice);
 
-            while (choice < 0 || choice > testFiles.Count())
+            while (choice < 0 || choice >= testFiles.Length)
             {
                 Console.WriteLine("Choose a test to run");
                 Console.WriteLine(string.Join(Environment.NewLine, testFiles.Select((string val, int num) => string.Format("{0}: {1}", num, val.Substring(0, val.LastIndexOf('_'))))));
@@ -37,7 +37,7 @@ namespace TweetsPerSecond
                 int.TryParse(Console.ReadLine(), out choice);
             }
 
-            var contents = File.ReadAllLines(testFiles.ToArray()[choice]);
+            var contents = File.ReadAllLines(testFiles[choice]);
             int k;
             int[] tps;
             try
