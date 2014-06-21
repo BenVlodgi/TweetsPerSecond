@@ -51,6 +51,11 @@ namespace TweetsPerSecond
                 return;
             }
 
+            // Make sure methods are jitted.
+            Console.WriteLine(S1.TweetsPerSecond(tps, k).Count());
+            Console.WriteLine(S2.TweetsPerSecond(tps, k).Count());
+            Console.WriteLine(S3.TweetsPerSecond(tps, k).Count());
+
             int iterations = 100;
 
             TimeSpan timer1 = TimeSpan.Zero;
