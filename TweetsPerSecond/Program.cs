@@ -55,12 +55,14 @@ namespace TweetsPerSecond
             Console.WriteLine(S1.TweetsPerSecond(tps, k).Count());
             Console.WriteLine(S2.TweetsPerSecond(tps, k).Count());
             Console.WriteLine(S3.TweetsPerSecond(tps, k).Count());
+            Console.WriteLine(S4.TweetsPerSecond(tps, k).Count());
 
             int iterations = 100;
 
             TimeSpan timer1 = TimeSpan.Zero;
             TimeSpan timer2 = TimeSpan.Zero;
             TimeSpan timer3 = TimeSpan.Zero;
+            TimeSpan timer4 = TimeSpan.Zero;
 
             for (int i = 0; i < iterations; i++)
             {
@@ -88,6 +90,14 @@ namespace TweetsPerSecond
                 stopwatch.Stop();
                 timer3 += stopwatch.Elapsed;
 
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+                stopwatch.Restart();
+                File.WriteAllLines("out4.txt",S4.TweetsPerSecond(tps, k));
+                stopwatch.Stop();
+                timer4 += stopwatch.Elapsed;
+
                 Console.WriteLine(i);
             }
 
@@ -100,6 +110,7 @@ namespace TweetsPerSecond
             Console.WriteLine("Timer1: {0} Miliseconds Average, \tTicks: {1}", TimeSpan.FromTicks(timer1.Ticks / iterations).TotalMilliseconds, timer1.Ticks);
             Console.WriteLine("Timer2: {0} Miliseconds Average, \tTicks: {1}", TimeSpan.FromTicks(timer2.Ticks / iterations).TotalMilliseconds, timer2.Ticks);
             Console.WriteLine("Timer3: {0} Miliseconds Average, \tTicks: {1}", TimeSpan.FromTicks(timer3.Ticks / iterations).TotalMilliseconds, timer3.Ticks);
+            Console.WriteLine("Timer4: {0} Miliseconds Average, \tTicks: {1}", TimeSpan.FromTicks(timer4.Ticks / iterations).TotalMilliseconds, timer4.Ticks);
             Console.Write("\nPress Any Key To Finish...");
             Console.ReadKey(true);
         }
