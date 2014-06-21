@@ -48,6 +48,7 @@
     <Compile Include="Solutions\S3.cs" />
     <Compile Include="Solutions\S4.cs" />
     <Compile Include="Solutions\IntSkipList.cs" />
+    <Compile Include="Solutions\S5.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
