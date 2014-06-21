@@ -32,7 +32,7 @@ namespace TweetsPerSecond
             while (choice < 0 || choice > testFiles.Count())
             {
                 Console.WriteLine("Choose a test to run");
-                Console.WriteLine(string.Join(Environment.NewLine, textFiles.Select((string val, int num) => string.Format("{0}: {1}", num, val.Substring(0, val.LastIndexOf('_'))))));
+                Console.WriteLine(string.Join(Environment.NewLine, testFiles.Select((string val, int num) => string.Format("{0}: {1}", num, val.Substring(0, val.LastIndexOf('_'))))));
                 Console.Write(">: ");
                 int.TryParse(Console.ReadLine(), out choice);
             }
