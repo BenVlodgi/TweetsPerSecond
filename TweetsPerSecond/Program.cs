@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,6 @@ namespace TweetsPerSecond
                 return;
             }
 
-            DateTime b1, b2, b3, s1, s2, s3;
             int iterations = 100;
 
             TimeSpan timer1 = new TimeSpan(0);
@@ -59,20 +59,20 @@ namespace TweetsPerSecond
 
             for (int i = 0; i < iterations; i++)
             {
-                b1 = DateTime.Now;
+                var stopwatch = Stopwatch.StartNew();
                 File.WriteAllLines("out1.txt",S1.TweetsPerSecond(tps, k));
-                s1 = DateTime.Now;
-                timer1 += s1 - b1;
+                stopwatch.Stop();
+                timer1 += stopwatch.Elapsed;
 
-                b2 = DateTime.Now;
+                stopwatch.Restart();
                 File.WriteAllLines("out2.txt",S2.TweetsPerSecond(tps, k));
-                s2 = DateTime.Now;
-                timer2 += s2 - b2;
+                stopwatch.Stop();
+                timer2 += stopwatch.Elapsed;
 
-                b3 = DateTime.Now;
+                stopwatch.Restart();
                 File.WriteAllLines("out3.txt",S3.TweetsPerSecond(tps, k));
-                s3 = DateTime.Now;
-                timer3 += s3 - b3;
+                stopwatch.Stop();
+                timer3 += stopwatch.Elapsed;
 
                 Console.WriteLine(i);
             }
